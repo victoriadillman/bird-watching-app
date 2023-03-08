@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// Trying to serve the MongoDB model:
-const models = require('./birdModels');
+// // Serve the MongoDB model: (adding this to birdController)
+// const Models = require('./birdModels');
+
+// Serve birdController & router functionality?
+const BirdController = require('./birdController');
 
 console.log("Running 3000 server...");
 // json parser
@@ -16,7 +19,13 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.post('/', )
+app.post('/', BirdController.createBird, (req, res) => {
+  return res.status(200).send(res.locals.created);
+})
+
+app.delete('/:name', BirdController.deleteBird, (req, res) => {
+  return res.sendStatus(200);
+})
 
 // global error handler
 app.use((err, req, res, next) => {
@@ -27,7 +36,7 @@ app.use((err, req, res, next) => {
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
-  return res.status(errorObj.status).json(errorObj.message);
+  return res.status(errorObj.status).send(errorObj.message);
 });
 
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/

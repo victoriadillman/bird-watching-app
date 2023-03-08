@@ -15,8 +15,8 @@ mongoose.connect(MONGO_URI, {
 
 
 const birdSchema = new Schema ({
-	name: String,
-	location: String
+	name: {type: String, required: true},
+	location: {type: String, required: true}
 })
 
 const Birds = mongoose.model('birds', birdSchema)
