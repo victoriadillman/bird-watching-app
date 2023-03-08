@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "db": "^3.4.0",
+    "mongo": "^0.1.0",
     "mongoose": "^7.0.1"
   }
 }
