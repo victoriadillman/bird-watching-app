@@ -2,9 +2,10 @@ import React from 'react'
 
 export function Bird() {
   return (
-    <div>
+    <div class="individual">
       <p>Name: Downy Woodpecker</p>
-      <p>Location: Propspect Park</p>
+      <p>Location: Prospect Park</p>
+      <button>Delete</button>
       <p></p>
     </div>
   )

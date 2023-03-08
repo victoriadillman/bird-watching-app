@@ -2,3 +2,13 @@ h1 {
   font-size: 40px;
   color: coral;
 }
+.birdex {
+  border: black solid 1px;
+}
+#mainbird {
+  display: flex;
+  justify-content: space-around;
+}
+.individual {
+  border: black solid 1px;
+}
