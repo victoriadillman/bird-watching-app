@@ -5,23 +5,29 @@ body {
   background-color: rgb(235, 74, 70);
 }
 h1 {
-  font-size: 40px;
+  font-size: 35px;
   font-family: 'Pokemon Solid', sans-serif;
-  color: white;
+  color: rgb(241, 238, 67);
+  grid-column: 2 / 5;
 }
 .birdex {
-  border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: black solid 3px;
   background-color: white;
   font-family: 'Press Start 2P', cursive;
 }
 #mainbird {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 .individual {
-  border: black solid 1px;
+  border: black solid 2px;
   background-color: white;
   font-size: .65em;
+  margin: 1em;
+  align-items: center;
 }
 button {
   font-family: 'Press Start 2P', cursive;
@@ -31,13 +37,63 @@ button {
 input {
   font-family: 'Press Start 2P', cursive;
   border: black solid 2px;
+  font-size: 1em;
+  min-width: 0;
 }
 #addButton {
-  font-size: .75em;
+  font-size: 1em;
   border: black solid 2px;
 }
 
 #addthebirddiv {
   display: flex;
   justify-content: center;
+}
+
+.topPart {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.dotPart {
+  grid-column: 6;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#dot {
+  height: 40px;
+  width: 40px;
+  border: white solid 2.5px;
+  outline: black solid 1px;
+  background-color:rgb(117, 251, 253);
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 40px;
+  grid-column: 1;
+}
+
+#redDot {
+  height: 20px;
+  width: 20px;
+  border: black solid 1px;
+  background-color:red;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+#yellowDot {
+  height: 20px;
+  width: 20px;
+  border: black solid 1px;
+  background-color: yellow;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+#greenDot {
+  height: 20px;
+  width: 20px;
+  border: black solid 1px;
+  background-color:green;
+  border-radius: 50%;
+  margin-top: 30px;
 }

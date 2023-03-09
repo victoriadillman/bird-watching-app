@@ -5,7 +5,16 @@ import { BirdContainer } from '../framework/BirdContainer.jsx'
 export default function App() {
   return (
     <div>
-      <h1>Gotta birdwatch'em all!</h1>
+      <div class="topPart">
+        <span id="dot"></span>
+        <h1>Gotta birdwatch'em all!</h1> 
+        <div class="dotPart">
+          <span id="redDot"></span>
+          <span id="yellowDot"></span>
+          <span id="greenDot"></span>
+        </div>
+        
+      </div>
       <BirdContainer />
     </div>
   )
