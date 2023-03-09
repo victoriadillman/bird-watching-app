@@ -129,4 +129,9 @@ img {
 #userHeader {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+}
+#newNickname {
+  max-width: 14em;
+  font-size: .75em;
 }

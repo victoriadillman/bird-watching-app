@@ -8,6 +8,7 @@ const initialState = {
   userName: '',
   userPhoto: '',
   count: 0,
+  nickname: ''
 }
 
 export const stateSlice = createSlice({
@@ -30,6 +31,9 @@ export const stateSlice = createSlice({
     },
     setNewName: (state, action) => {
       state.birdName = action.payload;
+    },
+    setNewName: (state, action) => {
+      state.nickname = action.payload;
     },
     clearFields: (state) => {
       state.birdName = '';
