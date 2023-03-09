@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Bird } from './components/Birds.jsx'
-import { populateBirds, setNewLocation, setNewName } from '../features/apiSlice.js'
+import { populateBirds, setNewLocation, setNewName, clearFields } from '../features/apiSlice.js'
 
 export function BirdContainer() {
   const dispatch = useDispatch()
@@ -23,23 +23,31 @@ export function BirdContainer() {
   return (
     <div class="birdex">
       <h3>Personal Birdex</h3>
-      <input type='text' placeholder="Location" id='newLocation' onChange={(e) => dispatch(setNewLocation(e.target.value))} />
-      <input type='text' placeholder="Bird Name" id='newName' onChange={(e) => dispatch(setNewName(e.target.value))} />
-      <button onClick={() => {
-        fetch('http://localhost:3000/', {
-          method: "POST",
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({name: name, location: location})
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-      }}>Add Bird</button>
-      <br></br>
       <div id="mainbird">
         {arrOfBirds}
+      </div>
+      <div id="addthebirddiv">
+        <input type='text' placeholder="Location" id='newLocation' onChange={(e) => dispatch(setNewLocation(e.target.value))} />
+        <input type='text' placeholder="Bird Name" id='newName' onChange={(e) => dispatch(setNewName(e.target.value))} />
+        <button id="addButton" onClick={() => {
+          fetch('http://localhost:3000/', {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: name, location: location})
+          })
+            .then((response) => response.json())
+            .then(() => {
+              fetch('http://localhost:3000/bird')
+                .then((response) => response.json())
+                .then((data) => {
+                  dispatch(populateBirds(data))
+                })
+            })
+            dispatch(clearFields())
+        }}>Add Bird</button>
       </div>
     </div>
     )

@@ -15,14 +15,18 @@ export const stateSlice = createSlice({
     },
     setNewLocation: (state, action) => {
       state.location = action.payload;
-      console.log('I am running newLocation reducer', state.location)
     },
     setNewName: (state, action) => {
       state.birdName = action.payload;
-      console.log('I am running newName reducer', state.birdName)
+    },
+    clearFields: (state) => {
+      state.birdName = '';
+      state.location = '';
+      document.getElementById('newLocation').value='';
+      document.getElementById('newName').value='';
     }
   }
 })
 
-export const { populateBirds, setNewLocation, setNewName } = stateSlice.actions
+export const { populateBirds, setNewLocation, setNewName, clearFields } = stateSlice.actions
 export default stateSlice.reducer
