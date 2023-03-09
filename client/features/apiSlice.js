@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
   value: [],
   location: '',
-  name: '',
+  birdName: '',
 }
 
 export const stateSlice = createSlice({
@@ -18,8 +18,8 @@ export const stateSlice = createSlice({
       console.log('I am running newLocation reducer', state.location)
     },
     setNewName: (state, action) => {
-      state.name = action.payload;
-      console.log('I am running newName reducer', state.name)
+      state.birdName = action.payload;
+      console.log('I am running newName reducer', state.birdName)
     }
   }
 })

@@ -6,7 +6,6 @@ const BirdController = {
   giveBird (req, res, next) {
     Birds.find({})
       .then((data => {
-        console.log('I am running the bird giving controller')
         res.locals.birds = data;
         return next()
       }))
@@ -41,7 +40,6 @@ const BirdController = {
     const name = req.params.name;
     Birds.deleteOne({name: name})
       .then((data) => {
-        console.log('I am running deleteBird controller')
         return next();
       })
       .catch((err) => {
