@@ -18,8 +18,10 @@ export function BirdContainer() {
   for (let i = 0; i < birds.length; i++) {
     arrOfBirds.push(<Bird name={birds[i].name} location={birds[i].location}/>)
   }
+  // Variables for POST request
   const location = useSelector((state) => state.birds.location)
   const name = useSelector((state) => state.birds.birdName)
+  // Rendering divs: 
   return (
     <div class="birdex">
       <h3>Personal Birdex</h3>

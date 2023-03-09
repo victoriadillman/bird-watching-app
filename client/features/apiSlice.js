@@ -4,6 +4,7 @@ const initialState = {
   value: [],
   location: '',
   birdName: '',
+  spots: [],
 }
 
 export const stateSlice = createSlice({
@@ -24,9 +25,12 @@ export const stateSlice = createSlice({
       state.location = '';
       document.getElementById('newLocation').value='';
       document.getElementById('newName').value='';
+    },
+    populateSpotting: (state, action) => {
+      state.spots = action.payload;
     }
   }
 })
 
-export const { populateBirds, setNewLocation, setNewName, clearFields } = stateSlice.actions
+export const { populateBirds, setNewLocation, setNewName, clearFields, populateSpotting } = stateSlice.actions
 export default stateSlice.reducer
