@@ -8,7 +8,6 @@ h1 {
   font-size: 3em;
   font-family: 'Pokemon Solid', sans-serif;
   color: rgb(241, 238, 67);
-  grid-column: 2 / 5;
 }
 h2 {
   font-size: 1.5em;
@@ -69,28 +68,20 @@ input {
   justify-content: center;
 }
 
-.topPart {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
 .dotPart {
-  grid-column: 6;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: flex-start;
 }
 
 #dot {
-  height: 30px;
+  height: 40px;
   width: 40px;
   border: white solid 2.5px;
   outline: black solid 1px;
   background-color:rgb(117, 251, 253);
   border-radius: 50%;
   display: inline-block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  grid-column: 1;
+  margin: 20px;
 }
 
 #redDot {
@@ -99,7 +90,8 @@ input {
   border: black solid 1px;
   background-color:red;
   border-radius: 50%;
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-right: 5px;
 }
 #yellowDot {
   height: 20px;
@@ -107,7 +99,8 @@ input {
   border: black solid 1px;
   background-color: yellow;
   border-radius: 50%;
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-right: 5px;
 }
 #greenDot {
   height: 20px;
@@ -115,5 +108,20 @@ input {
   border: black solid 1px;
   background-color:green;
   border-radius: 50%;
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.userDiv {
+  border: black solid 2px;
+  background-color: white;
+  font-size: .65em;
+  margin: .5em;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  max-width: 12em;
+}
+img {
+  width: 40px;
+  height: auto;
+  margin: 5px;
 }
