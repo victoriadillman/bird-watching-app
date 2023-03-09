@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 
 
 ReactDOM.render(
-  // Passing store as prop to our app component
+  // Passing store and API as prop to our app component
   <Provider store={store}>
     <App />
   </Provider>,

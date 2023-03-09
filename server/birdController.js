@@ -2,6 +2,23 @@
 const Birds = require('./birdModels');
 
 const BirdController = {
+  // Giving birds
+  giveBird (req, res, next) {
+    Birds.find({})
+      .then((data => {
+        console.log('I am running the bird giving controller')
+        res.locals.birds = data;
+        return next()
+      }))
+      .catch((err => {
+        return next({
+          log: 'Error at general get request',
+          status: 404,
+           message: { err: 'An error occurred' },
+        })
+      }))
+  },
+
   // Bird creation into database
   createBird (req, res, next) {
     const { name, location } = req.body;

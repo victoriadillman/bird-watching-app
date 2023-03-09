@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
+app.get('/bird/', BirdController.giveBird, (req, res) => {
+  // going to send res.locals instead 
+  return res.status(200).send(res.locals.birds)
+})
+
 app.post('/', BirdController.createBird, (req, res) => {
   return res.status(200).send(res.locals.created);
 })
