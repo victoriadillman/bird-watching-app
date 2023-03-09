@@ -1,10 +1,10 @@
 import React from 'react'
 
-export function Bird() {
+export function Bird(props) {
   return (
     <div class="individual">
-      <p>Name: Pigeon</p>
-      <p>Location: Prospect Park</p>
+      <p>Name: {props.name}</p>
+      <p>Location: {props.location}</p>
       <button>Delete</button>
       <p></p>
     </div>
