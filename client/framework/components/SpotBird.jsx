@@ -14,6 +14,7 @@ export function SpotBird(props) {
     <div class="listOfSpots">
       <p>Name: {props.name}</p>
       <p>Location: {string}</p>
+      <hr></hr>
     </div>
   )
 }

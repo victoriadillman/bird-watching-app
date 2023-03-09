@@ -26,7 +26,9 @@ export function StatContainer() {
   return (
     <div class="birdex">
       <h2>Regional Catch List</h2>
-      {arrOfSpots}
+      <div id="catchList">
+        {arrOfSpots}
+      </div>
     </div>
   )
 }

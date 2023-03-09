@@ -21,6 +21,15 @@ h2 {
   background-color: white;
   font-family: 'Press Start 2P', cursive;
 }
+#catchList {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: white;
+  font-family: 'Press Start 2P', cursive;
+  overflow: scroll;
+  margin-left: 5px;
+}
 .mainCombo {
   display: flex;
 }
