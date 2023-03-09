@@ -5,18 +5,18 @@ import { populateSpotting } from '../../features/apiSlice'
 
 export function StatContainer() {
   const dispatch = useDispatch()
-// Grabbing birding API
-  useEffect(() => {
-    fetch('https://api.ebird.org/v2/data/obs/US-NY/recent', {
-      headers: {
-        'X-eBirdApiToken': 'vgv41svubmsp'
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(populateSpotting([data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]]))
-      })
-  }, [])
+// Grabbing birding API (COMMENTED OUT FOR NO MORE API CALLS)
+  // useEffect(() => {
+  //   fetch('https://api.ebird.org/v2/data/obs/US-NY/recent', {
+  //     headers: {
+  //       'X-eBirdApiToken': 'vgv41svubmsp'
+  //     }
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       dispatch(populateSpotting([data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]]))
+  //     })
+  // }, [])
   const spots = useSelector((state) => state.birds.spots)
   const arrOfSpots = []
   for (let i = 0; i < spots.length; i++) {

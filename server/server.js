@@ -4,8 +4,9 @@ const path = require('path');
 // // Serve the MongoDB model: (adding this to birdController)
 // const Models = require('./birdModels');
 
-// Serve birdController & router functionality?
+// Serve birdController & router functionality
 const BirdController = require('./birdController');
+const UserController = require('./userController')
 
 console.log("Running 3000 server...");
 // json parser
@@ -29,6 +30,16 @@ app.post('/', BirdController.createBird, (req, res) => {
 })
 
 app.delete('/:name', BirdController.deleteBird, (req, res) => {
+  return res.sendStatus(200);
+})
+
+app.get('/user', UserController.getUser, (req, res) => {
+  return res.status(200).send(res.locals.user)
+})
+app.post('/user', UserController.createUser, (req, res) => {
+  return res.sendStatus(200)
+})
+app.patch('/user/:name', UserController.updateUser, (req, res) => {
   return res.sendStatus(200);
 })
 

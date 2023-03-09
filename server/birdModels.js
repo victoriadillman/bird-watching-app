@@ -1,4 +1,4 @@
-// Setting up my MongoDB Database for adding birds to profile later
+// Setting up my MongoDB Database for adding birds to profile
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const MONGO_URI = 'mongodb+srv://victoria:e7wJkwTxgJCHjh86@cluster1.cmxjvoo.mongodb.net/?retryWrites=true&w=majority';
@@ -21,4 +21,14 @@ const birdSchema = new Schema ({
 
 const Birds = mongoose.model('birds', birdSchema)
 
-module.exports = Birds;
+const userSchema = new Schema ({
+  name: {type: String, required: true},
+  photo: {type: String, required: true}
+})
+
+const User = mongoose.model('user', userSchema)
+
+module.exports = {
+  Birds,
+  User
+};

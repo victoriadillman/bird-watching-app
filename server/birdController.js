@@ -4,14 +4,14 @@ const Birds = require('./birdModels');
 const BirdController = {
   // Giving birds
   giveBird (req, res, next) {
-    Birds.find({})
+    Birds.Birds.find({})
       .then((data => {
         res.locals.birds = data;
         return next()
       }))
       .catch((err => {
         return next({
-          log: 'Error at general get request',
+          log: 'Error at general getBird request',
           status: 404,
            message: { err: 'An error occurred' },
         })
@@ -21,7 +21,7 @@ const BirdController = {
   // Bird creation into database
   createBird (req, res, next) {
     const { name, location } = req.body;
-    Birds.create({name: name, location: location})
+    Birds.Birds.create({name: name, location: location})
       .then((data => {
         res.locals.created = data;
         return next();
@@ -38,7 +38,7 @@ const BirdController = {
   deleteBird (req, res, next) {
     // Get query param
     const name = req.params.name;
-    Birds.deleteOne({name: name})
+    Birds.Birds.deleteOne({name: name})
       .then((data) => {
         return next();
       })

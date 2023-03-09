@@ -20,6 +20,7 @@ h2 {
   border: black solid 3px;
   background-color: white;
   font-family: 'Press Start 2P', cursive;
+  margin: 5px;
 }
 #catchList {
   display: flex;
