@@ -1,12 +1,15 @@
 import React from "react"
+import { useSelector } from "react-redux"
 
 export function User(props) {
+  const count = useSelector((state) => state.birds.count)
+  console.log(count);
   return (
     <div>
       <p>User:</p>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShay0Cf1PW9W1IRw76V3gjQjlfQQ-uJUqbvQ&usqp=CAU"></img>
-      <p>Name: Victoria</p>
-      <p>Birds Caught: 9</p>
+      <img src={props.photo}></img>
+      <p>Name: {props.name}</p>
+      <p>Birds Caught: {count}</p>
     </div>
   )
 }

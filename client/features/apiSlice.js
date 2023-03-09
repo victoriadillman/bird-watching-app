@@ -5,6 +5,9 @@ const initialState = {
   location: '',
   birdName: '',
   spots: [],
+  userName: '',
+  userPhoto: '',
+  count: 0,
 }
 
 export const stateSlice = createSlice({
@@ -12,7 +15,15 @@ export const stateSlice = createSlice({
   initialState,
   reducers: {
     populateBirds: (state, action) => {
+      console.log(action.payload)
+      let counter = 0;
+      action.payload.forEach(elem => counter++)
       state.value = action.payload;
+      state.count = counter;
+    },
+    populateUser: (state, action) => {
+      state.userName = action.payload[0].name;
+      state.userPhoto = action.payload[0].photo;
     },
     setNewLocation: (state, action) => {
       state.location = action.payload;
@@ -32,5 +43,5 @@ export const stateSlice = createSlice({
   }
 })
 
-export const { populateBirds, setNewLocation, setNewName, clearFields, populateSpotting } = stateSlice.actions
+export const { populateBirds, populateUser, setNewLocation, setNewName, clearFields, populateSpotting } = stateSlice.actions
 export default stateSlice.reducer
