@@ -10,12 +10,10 @@ export function BirdContainer() {
     fetch('http://localhost:3000/bird')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         dispatch(populateBirds(data))
       })
   }, [])
   const birds = useSelector((state) => state.birds.value)
-  console.log(birds)
   const arrOfBirds = []
   for (let i = 0; i < birds.length; i++) {
     arrOfBirds.push(<Bird name={birds[i].name} location={birds[i].location}/>)

@@ -41,6 +41,7 @@ const BirdController = {
     const name = req.params.name;
     Birds.deleteOne({name: name})
       .then((data) => {
+        console.log('I am running deleteBird controller')
         return next();
       })
       .catch((err) => {
