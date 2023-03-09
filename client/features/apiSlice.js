@@ -16,7 +16,6 @@ export const stateSlice = createSlice({
   initialState,
   reducers: {
     populateBirds: (state, action) => {
-      console.log(action.payload)
       let counter = 0;
       action.payload.forEach(elem => counter++)
       state.value = action.payload;
@@ -32,7 +31,7 @@ export const stateSlice = createSlice({
     setNewName: (state, action) => {
       state.birdName = action.payload;
     },
-    setNewName: (state, action) => {
+    setNickname: (state, action) => {
       state.nickname = action.payload;
     },
     clearFields: (state) => {
@@ -41,11 +40,16 @@ export const stateSlice = createSlice({
       document.getElementById('newLocation').value='';
       document.getElementById('newName').value='';
     },
+    clearName: (state) => {
+      console.log('entered clearName middleware')
+      state.nickname = '';
+      document.getElementById('newNickname').value='';
+    },
     populateSpotting: (state, action) => {
       state.spots = action.payload;
     }
   }
 })
 
-export const { populateBirds, populateUser, setNewLocation, setNewName, clearFields, populateSpotting } = stateSlice.actions
+export const { clearName, populateBirds, populateUser, setNewLocation, setNickname, setNewName, clearFields, populateSpotting } = stateSlice.actions
 export default stateSlice.reducer

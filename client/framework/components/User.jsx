@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setNewName, populateUser } from '../../features/apiSlice.js'
+import { setNickname, populateUser, clearName } from '../../features/apiSlice.js'
 
 export function User(props) {
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ export function User(props) {
       <img src={props.photo}></img>
       <p>Name: {props.name}</p>
       <p>Birds Caught: {count}</p>
-      <input type='text' placeholder="New Nickname" id='newNickname' onChange={(e) => dispatch(setNewName(e.target.value))} />
+      <input type='text' placeholder="New Nickname" id='newNickname' onChange={(e) => dispatch(setNickname(e.target.value))} />
       <button id="addNickname" onClick={() => {
         fetch(`http://localhost:3000/user/${props.name}`, {
           method: "PATCH",
@@ -29,6 +29,7 @@ export function User(props) {
               .then((response) => response.json())
               .then((data) => {
                 dispatch(populateUser(data))
+                dispatch(clearName())
               })
           })
       }}>Change Name</button>
