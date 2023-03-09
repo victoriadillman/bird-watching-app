@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Bird } from './components/Birds.jsx'
-import { populateBirds } from '../features/apiSlice.js'
+import { populateBirds, setNewLocation, setNewName } from '../features/apiSlice.js'
 
 export function BirdContainer() {
   const dispatch = useDispatch()
@@ -22,7 +22,11 @@ export function BirdContainer() {
   return (
     <div class="birdex">
       <h3>Personal Birdex</h3>
-      <button>Add Bird</button>
+      <input type='text' placeholder="Location" id='newLocation' onChange={(e) => dispatch(setNewLocation(e.target.value))} />
+      <input type='text' placeholder="Bird Name" id='newName' onChange={(e) => dispatch(setNewName(e.target.value))} />
+      <button onClick={() => {
+        fetch('http://localhost:3000/',)
+      }}>Add Bird</button>
       <br></br>
       <div id="mainbird">
         {arrOfBirds}

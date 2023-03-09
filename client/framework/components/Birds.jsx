@@ -14,7 +14,6 @@ export function Bird(props) {
             fetch('http://localhost:3000/bird')
               .then((response) => response.json())
               .then((data) => {
-                console.log(data);
                 dispatch(populateBirds(data))
               })
           })
