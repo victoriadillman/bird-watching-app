@@ -13,9 +13,9 @@ export default function App() {
         <span id="yellowDot"></span>
         <span id="greenDot"></span>
       </div>
-      <div>
-        <UserContainer />
+      <div id="userHeader">
         <h1>Gotta birdwatch'em all!</h1> 
+        <UserContainer />
       </div>
       <div class="mainCombo">
         <BirdContainer />
